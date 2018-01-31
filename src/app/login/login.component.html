@@ -1,0 +1,36 @@
+<form class="login" [formGroup]="formGroup">
+  <h2 class="login__title">Login-App</h2>
+
+  <mat-form-field>
+    <input matInput placeholder="Username" formControlName="userName" required>
+    <mat-error *ngIf="formGroup.get('userName').hasError('required') && formGroup.get('userName').touched">
+      Username is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email" required>
+    <mat-error *ngIf="formGroup.get('email').hasError('required') && formGroup.get('email').touched">
+      Email is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="formGroup.get('email').hasError('email') && formGroup.get('email').touched && !formGroup.get('email').hasError('required')">
+      Email incorrected
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Password" type="password" formControlName="password" required>
+    <mat-error *ngIf="formGroup.get('password').hasError('required') && formGroup.get('password').touched">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Confirm password" type="password" formControlName="confirmPassword" required>
+    <mat-error *ngIf="formGroup.get('confirmPassword').hasError('required') && formGroup.get('confirmPassword').touched">
+      Passwords <strong>do not matchrequired</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <button class="login__button" mat-raised-button color="primary" [disabled]="formGroup.status == 'INVALID' || formGroup.value.password != formGroup.value.confirmPassword">Sign in</button>
+</form>
