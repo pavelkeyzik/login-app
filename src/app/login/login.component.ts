@@ -10,7 +10,7 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  private formGroup = new FormGroup({
+  public formGroup = new FormGroup({
     userName: new FormControl('', [
       Validators.required,
     ]),
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  private authorize() {
+  public authorize() {
     let params = {
       userName: this.formGroup.get('userName').value,
       email: this.formGroup.get('email').value
