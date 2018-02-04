@@ -27,7 +27,7 @@
 
   <mat-form-field>
     <input matInput placeholder="Confirm password" type="password" formControlName="confirmPassword" required>
-    <mat-error *ngIf="formGroup.get('confirmPassword').hasError('required') && formGroup.get('confirmPassword').touched">
+    <mat-error *ngIf="formGroup.get('confirmPassword').hasError('MatchPassword') && formGroup.get('confirmPassword').touched">
       Passwords <strong>do not matchrequired</strong>
     </mat-error>
   </mat-form-field>
