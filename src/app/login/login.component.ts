@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
@@ -9,7 +9,7 @@ import { PasswordValidation } from '../shared/validators/password-matches';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.less']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   public formGroup;
 
@@ -33,9 +33,6 @@ export class LoginComponent implements OnInit {
     }, {
       validator: PasswordValidation.MatchPassword
     })
-  }
-
-  ngOnInit() {
   }
 
   public authorize() {
